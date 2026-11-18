@@ -12,3 +12,18 @@ def intersection(x1: int, y1: int, x2: int, y2: int, x3: int, y3: int, x4: int, 
     
     # Площадь пересечения
     return x_overlap * y_overlap
+
+def union(x1: int, y1: int, x2: int, y2: int, x3: int, y3: int, x4: int, y4: int) -> int:
+    """
+    Вычисляет площадь объединения двух прямоугольников.
+    """
+    # Площадь первого прямоугольника
+    area1 = abs(x2 - x1) * abs(y2 - y1)
+    # Площадь второго прямоугольника
+    area2 = abs(x4 - x3) * abs(y4 - y3)
+    
+    # Площадь их пересечения
+    inter_area = intersection(x1, y1, x2, y2, x3, y3, x4, y4)
+    
+    # Площадь объединения = сумма площадей - площадь пересечения
+    return area1 + area2 - inter_area
